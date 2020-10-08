@@ -168,7 +168,7 @@ function addRole() {
             {
                 title: response.title,
                 salary: response.salary,
-                dept_id: response.dept_id
+                department_id: response.dept_id
             },
             function (err) {
                 if (err) throw err;
@@ -181,6 +181,14 @@ function addRole() {
 
 const viewDepartment = () => {
     connection.query("SELECT * FROM department", function (err, res) {
+        if (err) throw err;
+        console.log(" ");
+        console.table(res);
+    })
+}
+
+const viewEmployee = () => {
+    connection.query("SELECT * FROM employee", function (err, res) {
         if (err) throw err;
         console.log(" ");
         console.table(res);
